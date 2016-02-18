@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="typeAhead">
+<head>
+   
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Scripts/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div class='container-fluid typeahead-demo' ng-controller="typeAheadCtrl as vm" style="width:700px">
+        <h4>Please type comma if you want to move down to sub-category!!</h4>
+        <pre>Your are searching for: {{selected | json}}</pre>
+        <!--
+        <input type="text" ng-model="vm.selected" uib-typeahead="comand for comand in vm.commands | bycommand:$viewValue | limitTo:20" ng-keypress="vm.checkIfEnterKeyWasPressed($event, vm.selected)" class="form-control">
+       
+        <select name="mySelect" id="mySelect"
+                ng-model="vm.selected"
+                ng-options="comand for comand in vm.commands | bycommand:vm.selected">
+             -->
+        <typeahead-dropdown style='width:300px' ng-model='selectedOption' options='vm.options'></typeahead-dropdown>
+        </select>
+        <h4>Bellow is a widget custom directive !!</h4>
+        <input type="text" ng-model="command" type-ahead-widget uib-typeahead="comand for comand in commands | bycommand:$viewValue | limitTo:20" ng-keypress="checkIfEnterKeyWasPressed($event, command)" class="form-control">
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.2.js"></script>
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>-->
+
+<script src="Scripts/app.js"></script>
+<script src="Scripts/typeAheadService.js"></script>
+<script src="Scripts/typeAheadCtrl.js"></script>
+<script src="Scripts/typeAheadWidget.js"></script>
+<script src="Scripts/typeaheadDropdown.js"></script>
+</html>
