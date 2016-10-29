@@ -14,7 +14,8 @@
 </head>
 <body  ng-app="typeAhead">
     <div class='container-fluid typeahead-demo' ng-controller="typeAheadCtrl as vm" style="width:710px">
-        <h4>Please type comma if you want to move down to sub-category!!</h4>
+	 <h3>This is type ahead search (ex.: buy, sell, rent) category based.</h3>
+        <h4>Please type comma if you want to move down to sub-category!</h4>
         <pre>Your are searching for: {{vm.selected | json}}</pre>
    
         <input type="text" ng-model="vm.selected" uib-typeahead="comand for comand in vm.commands | bycommand:$viewValue | limitTo:20" ng-keyup="vm.checkIfEnterKeyWasPressed($event, vm.selected)" class="form-control">
